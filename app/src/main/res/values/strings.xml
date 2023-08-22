@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Pokedex</string>
+
+    <string name="btn_retry">Retry</string>
+
+    <string name="str_retry_scroll">Retry the last scroll.</string>
+</resources>
