@@ -15,6 +15,7 @@ import com.base.pokedex.data.model.remote.dto.Type
 @Entity
 data class PokemonInfoEntity(
     val name: String,
+    val imageUrl: String,
     val height: Int,
     val weight: Int,
     val experience: Int,
@@ -25,6 +26,7 @@ data class PokemonInfoEntity(
     val specialAttack: Int,
     val specialDefense: Int,
     val speed: Int,
+    var update: String = "",
     @PrimaryKey
     val id: Int,
 )

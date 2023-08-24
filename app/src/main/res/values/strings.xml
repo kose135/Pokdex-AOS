@@ -3,5 +3,17 @@
 
     <string name="btn_retry">Retry</string>
 
+    <string name="str_error_network">A problem has occurred in the network.\nPlease check and try again.</string>
     <string name="str_retry_scroll">Retry the last scroll.</string>
+    <string name="str_pokemon_id">#%04d</string>
+    <string name="str_types">Types</string>
+    <string name="str_meter">%3.1f M</string>
+    <string name="str_kg">%3.1f KG</string>
+    <string name="str_weight_height">Weight &amp; Height</string>
+    <string name="str_weight">Weight</string>
+    <string name="str_height">Height</string>
+
+    <string name="tab_about">About</string>
+    <string name="tab_base_stats">Base Stats</string>
+
 </resources>

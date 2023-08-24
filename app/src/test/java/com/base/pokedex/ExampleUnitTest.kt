@@ -1,5 +1,6 @@
 package com.base.pokedex
 
+import androidx.compose.ui.res.stringResource
 import com.base.pokedex.data.model.remote.dto.Type
 import com.base.pokedex.data.model.remote.dto.TypeX
 import org.junit.Test
@@ -38,5 +39,13 @@ class ExampleUnitTest {
 
         val result = list.map { it.type.name }.toList()
         println(result)
+    }
+
+    @Test
+    fun stringFormatTest() {
+        val pokemonId = 3
+        val format = "#%04d"
+
+        println(format.format(pokemonId))
     }
 }

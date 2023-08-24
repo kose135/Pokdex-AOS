@@ -52,6 +52,7 @@ import com.base.pokedex.ui.viewmodel.PokemonViewModel
 import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
 import com.skydoves.landscapist.palette.PalettePlugin
+import timber.log.Timber
 import java.util.Locale
 
 
@@ -84,11 +85,11 @@ fun PokemonList(
     navController: NavController,
     viewModel: PokemonViewModel = hiltViewModel()
 ) {
-    val listState by remember { viewModel.pokemonListState }
+    val pokemonListState by remember { viewModel.pokemonListState }
 
     Box {
         // Vertical scroll LazyGrid
-        if (listState.pokemons.isNotEmpty()!!) {
+        if (pokemonListState.pokemons.isNotEmpty()!!) {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
                 // Content padding for the grid
@@ -97,29 +98,34 @@ fun PokemonList(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
-                items(listState.pokemons) { pokemonEntity ->
-                    if ((pokemonEntity == listState.pokemons[listState.pokemons.size - 1]) && !listState.isLoading) {
+                items(pokemonListState.pokemons) { pokemonEntity ->
+                    if ((pokemonEntity == pokemonListState.pokemons[pokemonListState.pokemons.size - 1]) && !pokemonListState.isLoading) {
                         viewModel.getPokemonList()
                     }
                     PokedexCard(navController, pokemonEntity)
                 }
             }
         }
-        if (listState.isLoading)
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        if (pokemonListState.isLoading)
+            Box(
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
                 CircularProgressIndicator()
             }
     }
 
-    if (listState.error.isNotEmpty()) {
-        if (listState.pokemons.isEmpty()) {
+    if (pokemonListState.error.isNotEmpty()) {
+        if (pokemonListState.pokemons.isEmpty()) {
             Column(
                 modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = listState.error,
+//                    text = pokemonListState.error,
+                    text = stringResource(R.string.str_error_network),
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(15.dp))
@@ -166,6 +172,7 @@ fun PokedexCard(
                 )
             )
             .clickable {
+                Timber.i("click")
                 navController.navigate(
                     "pokemon_detail_screen/${pokemonEntity.name}"
                 )
@@ -179,7 +186,7 @@ fun PokedexCard(
                         dominantColor = ParsePokedex.calcDominantColor(it) ?: defaultDominantColor
                     }
                 },
-                modifier = Modifier
+                modifier = modifier
                     .size(120.dp)
                     .align(CenterHorizontally),
                 loading = {
@@ -205,7 +212,8 @@ fun PokedexCard(
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
+                modifier = modifier
+                    .fillMaxWidth()
             )
         }
     }

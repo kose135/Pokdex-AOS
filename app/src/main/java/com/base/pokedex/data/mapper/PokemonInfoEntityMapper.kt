@@ -10,6 +10,7 @@ object PokemonInfoEntityMapper :
         return PokemonInfoEntity(
             id = domain.id,
             name = domain.name,
+            imageUrl = domain.imgUrl,
             height = domain.height,
             weight = domain.weight,
             experience = domain.baseExperience,

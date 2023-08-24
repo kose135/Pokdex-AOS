@@ -1,14 +1,12 @@
 package com.base.pokedex.data.mapper
 
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
 import androidx.compose.ui.graphics.Color
 import androidx.palette.graphics.Palette
 import com.base.pokedex.data.model.remote.dto.Stat
 import com.base.pokedex.data.model.remote.dto.StatX
 import com.base.pokedex.data.model.remote.dto.Type
 import com.base.pokedex.data.model.remote.dto.TypeX
+import com.base.pokedex.ui.theme.*
 
 object ParsePokedex {
 
@@ -20,7 +18,7 @@ object ParsePokedex {
     const val SPEED = "speed"
 
     fun parseStatEntity(statOption: String, stats: List<Stat>): Int {
-        return (stats.find { it.stat.name == statOption } ?: 0) as Int
+        return (stats.first { it.stat.name.lowercase() == statOption }.baseStat ?: 0) as Int
     }
 
     fun parseStatDomain(
@@ -119,8 +117,50 @@ object ParsePokedex {
         return intToColor(intColor)
     }
 
+    fun calcLightMutedSwatchColor(palette: Palette?): Color? {
+        val intColor = palette?.lightMutedSwatch?.rgb
+
+        return intToColor(intColor)
+    }
+
     private fun intToColor(intColor: Int?): Color? {
         return intColor?.let { Color(it) }
+    }
+
+    fun parseTypeToColor(type: String): Color {
+        return when(type.lowercase()) {
+            "normal" -> TypeNormal
+            "fire" -> TypeFire
+            "water" -> TypeWater
+            "electric" -> TypeElectric
+            "grass" -> TypeGrass
+            "ice" -> TypeIce
+            "fighting" -> TypeFighting
+            "poison" -> TypePoison
+            "ground" -> TypeGround
+            "flying" -> TypeFlying
+            "psychic" -> TypePsychic
+            "bug" -> TypeBug
+            "rock" -> TypeRock
+            "ghost" -> TypeGhost
+            "dragon" -> TypeDragon
+            "dark" -> TypeDark
+            "steel" -> TypeSteel
+            "fairy" -> TypeFairy
+            else -> Color.Black
+        }
+    }
+
+    fun parseStatToColor(stat: Stat): Color {
+        return when(stat.stat.name.toLowerCase()) {
+            "hp" -> HPColor
+            "attack" -> AtkColor
+            "defense" -> DefColor
+            "special-attack" -> SpAtkColor
+            "special-defense" -> SpDefColor
+            "speed" -> SpdColor
+            else -> Color.White
+        }
     }
 
 

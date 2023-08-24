@@ -20,12 +20,23 @@ data class PokemonInfo(
 //    val pastTypes: List<Any>,
 //    val species: Species,
 //    val sprites: Sprites,
+    @Json(name = "id")
     val id: Int,
+    @Json(name = "name")
     val name: String,
-    @Json(name = "base_experience")
+    @Json(name = "height")
     val height: Int,
+    @Json(name = "weight")
     val weight: Int,
+    @Json(name = "base_experience")
     val baseExperience: Int,
+    @Json(name = "stats")
     val stats: List<Stat>,
+    @Json(name = "types")
     val types: List<Type>,
-)
+) {
+    val imgUrl: String
+        get() {
+            return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png"
+        }
+}

@@ -9,7 +9,9 @@ import com.base.pokedex.data.model.local.entity.PokemonEntity
 import com.base.pokedex.data.model.remote.doOnFailure
 import com.base.pokedex.data.model.remote.doOnLoading
 import com.base.pokedex.data.model.remote.doOnSuccess
+import com.base.pokedex.data.model.viewstate.PokemonInfoState
 import com.base.pokedex.data.model.viewstate.PokemonListState
+import com.base.pokedex.data.usecase.GetPokemonInfoByNameUseCase
 import com.base.pokedex.data.usecase.GetPokemonListUseCase
 import com.base.pokedex.util.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,47 +20,32 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PokemonViewModel @Inject constructor(
-    private val getPokemonListUseCase: GetPokemonListUseCase
+class PokemonDetailViewModel @Inject constructor(
+    private val getPokemonInfoByNameUseCase: GetPokemonInfoByNameUseCase
 ) : ViewModel() {
 
-    private var curPage = 0
-    private var pokemonList: ArrayList<PokemonEntity> = arrayListOf()
+    private val _pokemonInfoState: MutableState<PokemonInfoState> =
+        mutableStateOf(PokemonInfoState())
+    val pokemonInfoState: State<PokemonInfoState> = _pokemonInfoState
 
-    private val _pokemonListState: MutableState<PokemonListState> =
-        mutableStateOf(PokemonListState())
-    val pokemonListState: State<PokemonListState> = _pokemonListState
-
-    init {
-        getPokemonList()
-    }
-
-    fun getPokemonList() = viewModelScope.launch {
-        val limit = Constants.DEFAULT_PAGE_SIZE
-        val offset = curPage * limit
-
-        getPokemonListUseCase(
-            limit = limit,
-            offset = offset
-        )
-            .doOnSuccess {
-                pokemonList += it // pokemonList.addAll(it) Same
-                _pokemonListState.value = PokemonListState(
-                    pokemons = pokemonList.toList()
-                )
-                curPage++
-            }
-            .doOnFailure {
-                _pokemonListState.value = PokemonListState(
-                    pokemons = pokemonList.toList(),
-                    error = it.localizedMessage!!
-                )
-            }
-            .doOnLoading {
-                _pokemonListState.value = PokemonListState(
-                    pokemons = pokemonList.toList(),
-                    isLoading = true
-                )
-            }.collect()
+    fun getPokemonInfo(pokemonName: String) {
+        viewModelScope.launch {
+            getPokemonInfoByNameUseCase(pokemonName)
+                .doOnSuccess {
+                    _pokemonInfoState.value = PokemonInfoState(
+                        pokemonInfo = it
+                    )
+                }
+                .doOnFailure {
+                    _pokemonInfoState.value = PokemonInfoState(
+                        error = it.localizedMessage!!
+                    )
+                }
+                .doOnFailure {
+                    _pokemonInfoState.value = PokemonInfoState(
+                        isLoading = true
+                    )
+                }.collect()
+        }
     }
 }
