@@ -1,10 +1,9 @@
 package com.base.pokedex.di
 
 import android.content.Context
-import com.base.pokedex.data.model.remote.PokeApiService
+import com.base.pokedex.data.remote.PokeApiService
 import com.base.pokedex.util.Constants
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -60,11 +59,11 @@ object NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         moshi: Moshi,
-    ): com.base.pokedex.data.model.remote.PokeApiService = Retrofit.Builder()
+    ): PokeApiService = Retrofit.Builder()
         .run {
             baseUrl(Constants.BASE_URL)
             client(okHttpClient)
             addConverterFactory(MoshiConverterFactory.create(moshi))
             build()
-        }.create(com.base.pokedex.data.model.remote.PokeApiService::class.java)
+        }.create(PokeApiService::class.java)
 }

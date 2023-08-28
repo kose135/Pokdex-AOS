@@ -2,10 +2,10 @@ package com.base.pokedex.di
 
 import android.content.Context
 import androidx.room.Room
-import com.base.pokedex.data.model.local.PokedexDatabase
-import com.base.pokedex.data.model.local.StringListTypeConverter
-import com.base.pokedex.data.model.local.dao.PokemonInfoDao
-
+import com.base.pokedex.data.local.PokedexDatabase
+import com.base.pokedex.data.local.StringListPairTypeConverter
+import com.base.pokedex.data.local.StringListTypeConverter
+import com.base.pokedex.data.local.dao.PokemonInfoDao
 import com.base.pokedex.util.Constants
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -23,7 +23,8 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(
         @ApplicationContext app: Context,
-        stringListTypeConverter: StringListTypeConverter
+        stringListTypeConverter: StringListTypeConverter,
+        stringListPairTypeConverter: StringListPairTypeConverter
     ): PokedexDatabase {
         return Room.databaseBuilder(
             app,
@@ -32,6 +33,7 @@ object DatabaseModule {
         ).run {
             fallbackToDestructiveMigration()
             addTypeConverter(stringListTypeConverter)
+            addTypeConverter(stringListPairTypeConverter)
             build()
         }
     }
@@ -40,6 +42,12 @@ object DatabaseModule {
     @Singleton
     fun provideStringListTypeConverter(moshi: Moshi): StringListTypeConverter {
         return StringListTypeConverter(moshi)
+    }
+
+    @Provides
+    @Singleton
+    fun provideStringListPairTypeConverter(moshi: Moshi): StringListPairTypeConverter {
+        return StringListPairTypeConverter(moshi)
     }
 
     @Provides

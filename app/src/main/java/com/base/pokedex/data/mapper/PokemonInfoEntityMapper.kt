@@ -1,7 +1,11 @@
 package com.base.pokedex.data.mapper
 
-import com.base.pokedex.data.model.local.entity.PokemonInfoEntity
-import com.base.pokedex.data.model.remote.dto.PokemonInfo
+import com.base.pokedex.data.remote.dto.PokemonInfo
+import com.base.pokedex.data.remote.dto.Stat
+import com.base.pokedex.data.remote.dto.StatX
+import com.base.pokedex.data.remote.dto.Type
+import com.base.pokedex.data.remote.dto.TypeX
+import com.base.pokedex.domain.entity.PokemonInfoEntity
 
 object PokemonInfoEntityMapper :
     EntityMapper<PokemonInfo, PokemonInfoEntity> {
@@ -14,16 +18,8 @@ object PokemonInfoEntityMapper :
             height = domain.height,
             weight = domain.weight,
             experience = domain.baseExperience,
-            types = ParsePokedex.parseTypeEntity(domain.types),
-            hp = ParsePokedex.parseStatEntity(ParsePokedex.HP, domain.stats),
-            attack = ParsePokedex.parseStatEntity(ParsePokedex.ATTACK, domain.stats),
-            defense = ParsePokedex.parseStatEntity(ParsePokedex.DEFENSE, domain.stats),
-            specialAttack = ParsePokedex.parseStatEntity(ParsePokedex.SPECIAL_ATTACK, domain.stats),
-            specialDefense = ParsePokedex.parseStatEntity(
-                ParsePokedex.SPECIAL_DEFENSE,
-                domain.stats
-            ),
-            speed = ParsePokedex.parseStatEntity(ParsePokedex.SPEED, domain.stats),
+            types = parseTypeEntity(domain.types),
+            stats = parseStatEntity(domain.stats),
         )
     }
 
@@ -34,14 +30,34 @@ object PokemonInfoEntityMapper :
             height = entity.height,
             weight = entity.weight,
             baseExperience = entity.experience,
-            types = ParsePokedex.parseTypeDomain(entity.types),
-            stats = ParsePokedex.parseStatDomain(
-                hp = entity.hp,
-                attack = entity.attack,
-                defense = entity.defense,
-                specialAttack = entity.specialAttack,
-                specialDefense = entity.specialDefense,
-                speed = entity.speed,
+            types = parseTypeDomain(entity.types),
+            stats = parseStatDomain(entity.stats)
+        )
+    }
+
+    private fun parseStatEntity(stats: List<Stat>): List<Pair<String, Int>> =
+        stats.map { Pair(it.stat.name, it.baseStat) }
+
+    private fun parseStatDomain(stats: List<Pair<String, Int>>): List<Stat> = stats.map {
+        Stat(
+            baseStat = it.second,
+            effort = 0,
+            stat = StatX(
+                name = it.first,
+                url = ""
+            )
+        )
+    }
+
+    private fun parseTypeEntity(types: List<Type>): List<String> =
+        types.map { it.type.name }.toList()
+
+    private fun parseTypeDomain(types: List<String>): List<Type> = types.map {
+        Type(
+            slot = 0,
+            type = TypeX(
+                name = it,
+                url = ""
             )
         )
     }

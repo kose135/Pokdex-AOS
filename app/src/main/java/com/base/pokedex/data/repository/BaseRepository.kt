@@ -1,6 +1,6 @@
 package com.base.pokedex.data.repository
 
-import com.base.pokedex.data.model.remote.Result
+import com.base.pokedex.domain.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

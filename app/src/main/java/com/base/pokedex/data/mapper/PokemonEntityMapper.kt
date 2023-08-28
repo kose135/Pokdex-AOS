@@ -1,9 +1,7 @@
 package com.base.pokedex.data.mapper
 
-import com.base.pokedex.data.model.local.entity.PokemonEntity
-import com.base.pokedex.data.model.local.entity.PokemonInfoEntity
-import com.base.pokedex.data.model.remote.dto.Pokemon
-import com.base.pokedex.data.model.remote.dto.PokemonInfo
+import com.base.pokedex.data.remote.dto.Pokemon
+import com.base.pokedex.domain.entity.PokemonEntity
 
 
 object PokemonEntityMapper : EntityMapper<List<Pokemon>, List<PokemonEntity>> {
