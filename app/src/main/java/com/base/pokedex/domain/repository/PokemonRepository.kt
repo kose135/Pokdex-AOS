@@ -1,7 +1,5 @@
 package com.base.pokedex.domain.repository
 
-import com.base.pokedex.data.remote.dto.PokemonInfo
-import com.base.pokedex.data.remote.response.PokemonListResponse
 import com.base.pokedex.domain.entity.PokemonInfoEntity
 import com.base.pokedex.domain.Result
 import com.base.pokedex.domain.entity.PokemonEntity

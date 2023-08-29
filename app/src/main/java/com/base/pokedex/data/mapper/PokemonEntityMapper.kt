@@ -1,6 +1,6 @@
 package com.base.pokedex.data.mapper
 
-import com.base.pokedex.data.remote.dto.Pokemon
+import com.base.pokedex.data.remote.model.Pokemon
 import com.base.pokedex.domain.entity.PokemonEntity
 
 

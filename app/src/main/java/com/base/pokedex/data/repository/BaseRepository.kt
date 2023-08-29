@@ -13,12 +13,12 @@ import java.io.IOException
 abstract class BaseRepository {
     suspend fun <T> safeApiCall(
         dispatcher: CoroutineDispatcher = Dispatchers.IO, // 백그라운드 쓰레드
-        call: suspend () -> Response<T>,
+        apiCall: suspend () -> Response<T>,
     ): Flow<Result<T>> = flow {
 
         emit(Result.Loading)
 
-        val response = call()
+        val response = apiCall()
         if (response.isSuccessful) {
             val data = response.body()
             if (data != null) {
@@ -39,4 +39,24 @@ abstract class BaseRepository {
         emit(Result.Failure(Exception(e)))
     }.flowOn(dispatcher)
 
+    suspend fun <T> apiCall(
+        apiCall: suspend () -> Response<T>,
+    ): Result<T> {
+        val response = apiCall()
+        return if (response.isSuccessful) {
+            val data = response.body()
+            if (data != null) {
+                Result.Success(data)
+            } else {
+                val error = response.errorBody()
+                if (error != null) {
+                    Result.Failure(IOException(error.toString()))
+                } else {
+                    Result.Failure(IOException("something went wrong"))
+                }
+            }
+        } else {
+            Result.Failure(Throwable(response.errorBody().toString()))
+        }
+    }
 }

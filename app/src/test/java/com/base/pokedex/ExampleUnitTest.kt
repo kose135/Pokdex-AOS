@@ -1,8 +1,5 @@
 package com.base.pokedex
 
-import androidx.compose.ui.res.stringResource
-import com.base.pokedex.data.model.remote.dto.Type
-import com.base.pokedex.data.model.remote.dto.TypeX
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -17,35 +14,23 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
-
-    @Test
-    fun CollectionTest() {
-        val list = listOf<Type>(
-            Type(
-                slot = 0,
-                type = TypeX(
-                    name = "bug",
-                    url = ""
-                )
-            ),
-            Type(
-                slot = 0,
-                type = TypeX(
-                    name = "poison",
-                    url = ""
-                )
-            ),
-        )
-
-        val result = list.map { it.type.name }.toList()
-        println(result)
-    }
-
     @Test
     fun stringFormatTest() {
-        val pokemonId = 3
-        val format = "#%04d"
+        val data =
+            "[(hp, 80), (attack, 82), (defense, 83), (special-attack, 100), (special-defense, 100), (speed, 80)]"
 
-        println(format.format(pokemonId))
+        val regex = Regex("\\((.*?), (\\d+)\\)")
+        val list: List<Pair<String, Int>> = regex.findAll(data)
+            .map { matchResult ->
+                val (key, value) = matchResult.destructured
+                Pair(key, value.toInt())
+            }
+            .toList()
+
+
+        println("list = $list")
+
+        val result = list.zipWithNext()
+        println("result = $result")
     }
 }

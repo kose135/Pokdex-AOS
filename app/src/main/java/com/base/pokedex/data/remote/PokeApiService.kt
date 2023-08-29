@@ -1,6 +1,6 @@
 package com.base.pokedex.data.remote
 
-import com.base.pokedex.data.remote.dto.PokemonInfo
+import com.base.pokedex.data.remote.model.PokemonInfo
 import com.base.pokedex.data.remote.response.PokemonListResponse
 import retrofit2.Response
 import retrofit2.http.GET

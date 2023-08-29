@@ -6,8 +6,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.base.pokedex.ui.theme.LoadingIndicatorColor
+import com.base.pokedex.ui.theme.LoadingIndicatorTrackColor
 
 @Composable
 fun Space(
@@ -22,10 +25,14 @@ fun Space(
 
 @Composable
 fun LoadingIndicator(
-    width: Dp = 10.dp,
-    size: Dp = 100.dp
+    width: Dp = 7.dp,
+    size: Dp = 100.dp,
+    color: Color = LoadingIndicatorColor,
+    trackColor: Color = LoadingIndicatorTrackColor
 ) {
     CircularProgressIndicator(
+        color = color,
+        trackColor = trackColor,
         strokeWidth = width,
         modifier = Modifier
             .size(size)

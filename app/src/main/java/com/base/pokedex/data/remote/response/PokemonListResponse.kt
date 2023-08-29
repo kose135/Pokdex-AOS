@@ -1,6 +1,6 @@
 package com.base.pokedex.data.remote.response
 
-import com.base.pokedex.data.remote.dto.Pokemon
+import com.base.pokedex.data.remote.model.Pokemon
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

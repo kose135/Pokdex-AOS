@@ -90,6 +90,7 @@ fun PokemonDetailScreen(
     ) {
         PokemonDetailTopSection(
             navController = navController,
+            state = pokemonInfoState,
         )
 
         when (pokemonInfoState) {
@@ -147,6 +148,7 @@ fun PokemonDetailScreen(
 @Composable
 fun PokemonDetailTopSection(
     navController: NavController,
+    state: PokemonInfoState,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -155,28 +157,20 @@ fun PokemonDetailTopSection(
             .background(Color.Transparent)
             .fillMaxWidth()
             .wrapContentHeight(),
-        horizontalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
             imageVector = Icons.Default.ArrowBack,
             contentDescription = null,
-            tint = Color.White,
+            tint = when (state) {
+                is PokemonInfoState.Failure -> Color.Black
+                else -> Color.White
+            },
             modifier = Modifier
                 .size(36.dp)
                 .clickable {
                     navController.popBackStack()
-                }
-        )
-
-        Icon(
-            imageVector = Icons.Default.Star,
-            contentDescription = null,
-            tint = Color.White,
-            modifier = Modifier
-                .size(25.dp)
-                .clickable {
-
                 }
         )
     }

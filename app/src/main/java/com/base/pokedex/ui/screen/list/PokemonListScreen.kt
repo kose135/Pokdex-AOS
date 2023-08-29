@@ -47,6 +47,7 @@ import androidx.navigation.NavController
 import com.base.pokedex.R
 import com.base.pokedex.domain.entity.PokemonEntity
 import com.base.pokedex.ui.screen.common.LoadingIndicator
+import com.base.pokedex.ui.screen.navigation.MainNavigation
 import com.base.pokedex.util.PokedexParse
 import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
@@ -188,9 +189,10 @@ fun PokemonItem(
                 )
             )
             .clickable {
-                Timber.i("click")
+                val pokemonName = pokemonEntity.name
+
                 navController.navigate(
-                    "pokemon_detail_screen/${pokemonEntity.name}"
+                    MainNavigation.Detail.moveRoute(pokemonName)
                 )
             }
     ) {

@@ -6,7 +6,6 @@ import javax.inject.Inject
 class GetPokemonInfoByIdUseCase @Inject constructor(
     private val pokemonRepository: PokemonRepository
 ) {
-    suspend operator fun invoke(id: Int) = pokemonRepository.getPokemonInfoById(
-        id
-    )
+    suspend operator fun invoke(id: Int) =
+        pokemonRepository.getPokemonInfoById(id)
 }

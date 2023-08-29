@@ -8,6 +8,9 @@ val LightGrey = Color(0xFFAAAAAA)
 val DarkModeBackground = Color(0xFF505050)
 val LightModeBackground = Color.LightGray
 
+val LoadingIndicatorColor = Color(0xFFFE6566)
+val LoadingIndicatorTrackColor = Color(0xFFDCE9FC)
+
 val HPColor = Color(0xFFFE111A)
 val AtkColor = Color(0.773f, 0.459f, 0.267f, 0.66f)
 val DefColor = Color(0.988f, 0.827f, 0.239f, 0.44f)

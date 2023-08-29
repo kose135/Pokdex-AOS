@@ -5,6 +5,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -27,7 +28,7 @@ class PokemonDetailViewModel @Inject constructor(
     private val getPokemonInfoByNameUseCase: GetPokemonInfoByNameUseCase
 ) : ViewModel() {
 
-    var themeColor by mutableStateOf(TypeNormal)
+    var themeColor by mutableStateOf(Color.White)
     var pokemonName by mutableStateOf("")
 
     private val _pokemonInfoState: MutableState<PokemonInfoState> =

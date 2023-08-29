@@ -1,10 +1,10 @@
 package com.base.pokedex.data.mapper
 
-import com.base.pokedex.data.remote.dto.PokemonInfo
-import com.base.pokedex.data.remote.dto.Stat
-import com.base.pokedex.data.remote.dto.StatX
-import com.base.pokedex.data.remote.dto.Type
-import com.base.pokedex.data.remote.dto.TypeX
+import com.base.pokedex.data.remote.model.PokemonInfo
+import com.base.pokedex.data.remote.model.Stat
+import com.base.pokedex.data.remote.model.StatX
+import com.base.pokedex.data.remote.model.Type
+import com.base.pokedex.data.remote.model.TypeX
 import com.base.pokedex.domain.entity.PokemonInfoEntity
 
 object PokemonInfoEntityMapper :

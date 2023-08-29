@@ -46,8 +46,8 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideStringListPairTypeConverter(moshi: Moshi): StringListPairTypeConverter {
-        return StringListPairTypeConverter(moshi)
+    fun provideStringListPairTypeConverter(): StringListPairTypeConverter {
+        return StringListPairTypeConverter()
     }
 
     @Provides
