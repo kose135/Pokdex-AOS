@@ -4,7 +4,7 @@ This app is a clean architecture example
 
 # Preview
 
-<img src="/doc/preview.gif" align="center" width="60%"/>
+<img src="/doc/preview.gif" align="center" width="35%"/>
 
 ### Light
 
