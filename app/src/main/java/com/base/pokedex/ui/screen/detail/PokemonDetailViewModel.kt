@@ -58,7 +58,7 @@ class PokemonDetailViewModel @Inject constructor(
 
     fun setThemeColor(isDarkTheme: Boolean, palette: Palette) {
         themeColor = if (!isDarkTheme) {
-            PokedexParse.calcLightVibrantColor(palette) ?: themeColor
+            PokedexParse.calcDominantColor(palette) ?: themeColor
         } else {
             PokedexParse.calcDarkMutedColor(palette) ?: themeColor
         }

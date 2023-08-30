@@ -101,15 +101,7 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
-//    def glide_version = "1.0.0-alpha.5"
-//    implementation "com.github.bumptech.glide:compose:$glide_version"
-
     def landscapist_version = "2.2.7"
     implementation "com.github.skydoves:landscapist-glide:$landscapist_version"
     implementation "com.github.skydoves:landscapist-palette:$landscapist_version"
-
-    // 이미지의 주요 색상이나 색상 팔레트를 추출하는 데 도움을 주는 AndroidX 라이브러리
-//    def palette_version = "1.0.0"
-//    implementation "androidx.palette:palette:$palette_version"
-
 }

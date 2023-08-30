@@ -20,6 +20,9 @@ interface PokeApiService {
         @Path("name") name: String
     ): Response<PokemonInfo>
 
+    /*
+    Not used in this project
+     */
     @GET("pokemon/{id}")
     suspend fun getPokemonInfoById(
         @Path("id") id: Int
