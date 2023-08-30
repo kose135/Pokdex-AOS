@@ -4,6 +4,8 @@ This app is a clean architecture example
 
 # Preview
 
+<img src="/doc/preview.gif" align="center"/>
+
 ### Light
 
 <img src="/doc/light_mode.png"/>
@@ -16,20 +18,21 @@ This app is a clean architecture example
 
 # Tech stack
 
-* Kotlin
+* Kotlin - First class and official programming language for Android development.
 * Clean Architecture
-* Jetpack Compose
-    * ViewModel
+* Jetpack Compose - Modern way to make Ui in android kotlin.
+    * ViewModel - Stores UI-related data that isn't destroyed on UI changes.
     * Navigation
-* Coroutines
-* Hilt
-* Room
-* Retrofit2 & OkHttp3
-* Moshi
+* Coroutines - For asynchronous and more.
+  * Flow - A cold asynchronous data stream that sequentially emits values and completes normally or with an exception
+* Hilt, Dagger - Standard library to incorporate Dagger dependency injection into an Android application
+* Room - A library that makes it easier to use SQLite databases
+* Retrofit2 & OkHttp3 - A type-safe HTTP client for Android and Java & network logging
+* Moshi - A modern JSON library for Kotlin and Java.
 * Landscapist
-    * Glide
-    * Palette
-* Timber
+    * Glide - Load images simply by using `GlideImage` composable function
+    * Palette - Useful image plugins related to palette, such as extracting primary color sets
+* Timber - This is a logger with a small, extensible API which provides utility on top of Android's normal Log class.
 
 <br><br>
 
