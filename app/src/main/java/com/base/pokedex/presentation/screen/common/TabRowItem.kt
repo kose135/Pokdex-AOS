@@ -1,4 +1,4 @@
-package com.base.pokedex.ui.screen.common
+package com.base.pokedex.presentation.screen.common
 
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource

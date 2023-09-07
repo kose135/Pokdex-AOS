@@ -1,4 +1,4 @@
-package com.base.pokedex.ui.screen.list
+package com.base.pokedex.presentation.screen.list
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -46,13 +46,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.base.pokedex.R
 import com.base.pokedex.domain.entity.PokemonEntity
-import com.base.pokedex.ui.screen.common.LoadingIndicator
-import com.base.pokedex.ui.screen.navigation.MainNavigation
+import com.base.pokedex.presentation.screen.common.LoadingIndicator
+import com.base.pokedex.presentation.screen.navigation.MainNavigation
 import com.base.pokedex.util.PokedexParse
 import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
 import com.skydoves.landscapist.palette.PalettePlugin
-import timber.log.Timber
 import java.util.Locale
 
 

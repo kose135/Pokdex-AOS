@@ -1,4 +1,4 @@
-package com.base.pokedex.ui.screen.common
+package com.base.pokedex.presentation.screen.common
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.base.pokedex.ui.theme.LoadingIndicatorColor
-import com.base.pokedex.ui.theme.LoadingIndicatorTrackColor
+import com.base.pokedex.presentation.theme.LoadingIndicatorColor
+import com.base.pokedex.presentation.theme.LoadingIndicatorTrackColor
 
 @Composable
 fun Space(

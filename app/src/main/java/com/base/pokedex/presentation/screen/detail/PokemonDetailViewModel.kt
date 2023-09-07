@@ -1,4 +1,4 @@
-package com.base.pokedex.ui.screen.detail
+package com.base.pokedex.presentation.screen.detail
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
@@ -14,7 +14,6 @@ import com.base.pokedex.domain.doOnFailure
 import com.base.pokedex.domain.doOnLoading
 import com.base.pokedex.domain.doOnSuccess
 import com.base.pokedex.domain.usecase.GetPokemonInfoByNameUseCase
-import com.base.pokedex.ui.theme.TypeNormal
 import com.base.pokedex.util.PokedexParse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect

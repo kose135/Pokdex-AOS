@@ -1,4 +1,4 @@
-package com.base.pokedex.ui.screen.detail
+package com.base.pokedex.presentation.screen.detail
 
 import com.base.pokedex.domain.entity.PokemonInfoEntity
 

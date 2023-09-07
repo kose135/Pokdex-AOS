@@ -1,4 +1,4 @@
-package com.base.pokedex.ui.screen.detail
+package com.base.pokedex.presentation.screen.detail
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -29,8 +29,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.base.pokedex.domain.entity.PokemonInfoEntity
-import com.base.pokedex.ui.theme.DarkModeBackground
-import com.base.pokedex.ui.theme.LightModeBackground
+import com.base.pokedex.presentation.theme.DarkModeBackground
+import com.base.pokedex.presentation.theme.LightModeBackground
 import com.base.pokedex.util.PokedexParse
 
 @Composable

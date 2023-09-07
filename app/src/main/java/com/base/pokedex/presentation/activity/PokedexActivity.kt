@@ -1,23 +1,17 @@
-package com.base.pokedex.ui.activity
+package com.base.pokedex.presentation.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedContentTransitionScope
-import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import com.base.pokedex.ui.screen.detail.PokemonDetailScreen
-import com.base.pokedex.ui.screen.list.PokemonListScreen
-import com.base.pokedex.ui.screen.navigation.MainNavigation
-import com.base.pokedex.ui.theme.PokedexApplicationTheme
+import com.base.pokedex.presentation.screen.detail.PokemonDetailScreen
+import com.base.pokedex.presentation.screen.list.PokemonListScreen
+import com.base.pokedex.presentation.screen.navigation.MainNavigation
+import com.base.pokedex.presentation.theme.PokedexApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

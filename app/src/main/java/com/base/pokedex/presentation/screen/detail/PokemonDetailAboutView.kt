@@ -1,4 +1,4 @@
-package com.base.pokedex.ui.screen.detail
+package com.base.pokedex.presentation.screen.detail
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.base.pokedex.R
 import com.base.pokedex.domain.entity.PokemonInfoEntity
-import com.base.pokedex.ui.screen.common.Space
+import com.base.pokedex.presentation.screen.common.Space
 import com.base.pokedex.util.PokedexParse
 import java.util.Locale
 import kotlin.math.round

@@ -68,7 +68,7 @@ pokedex
 │  ├─ repository (interface)
 │  ├─ usecase
 │  └─ Result.kt
-├─ ui
+├─ presentation 
 │  ├─ activity
 │  ├─ screen 
 │  └─ theme

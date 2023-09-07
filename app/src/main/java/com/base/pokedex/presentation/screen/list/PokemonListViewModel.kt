@@ -1,4 +1,4 @@
-package com.base.pokedex.ui.screen.list
+package com.base.pokedex.presentation.screen.list
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State

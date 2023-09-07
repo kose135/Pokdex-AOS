@@ -1,4 +1,4 @@
-package com.base.pokedex.ui.screen.detail
+package com.base.pokedex.presentation.screen.detail
 
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat
@@ -27,7 +27,6 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Tab
@@ -60,11 +59,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.base.pokedex.R
 import com.base.pokedex.domain.entity.PokemonInfoEntity
-import com.base.pokedex.ui.screen.common.LoadingIndicator
-import com.base.pokedex.ui.screen.common.NoInteraction
-import com.base.pokedex.ui.screen.common.TabRowItem
-import com.base.pokedex.ui.screen.common.offsetForPage
-import com.base.pokedex.ui.theme.TypeNormal
+import com.base.pokedex.presentation.screen.common.LoadingIndicator
+import com.base.pokedex.presentation.screen.common.NoInteraction
+import com.base.pokedex.presentation.screen.common.TabRowItem
+import com.base.pokedex.presentation.screen.common.offsetForPage
+import com.base.pokedex.presentation.theme.TypeNormal
 import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
 import com.skydoves.landscapist.palette.PalettePlugin

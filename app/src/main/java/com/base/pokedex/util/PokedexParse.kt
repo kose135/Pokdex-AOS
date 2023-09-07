@@ -2,30 +2,30 @@ package com.base.pokedex.util
 
 import androidx.compose.ui.graphics.Color
 import androidx.palette.graphics.Palette
-import com.base.pokedex.ui.theme.AtkColor
-import com.base.pokedex.ui.theme.DefColor
-import com.base.pokedex.ui.theme.HPColor
-import com.base.pokedex.ui.theme.SpAtkColor
-import com.base.pokedex.ui.theme.SpDefColor
-import com.base.pokedex.ui.theme.SpdColor
-import com.base.pokedex.ui.theme.TypeBug
-import com.base.pokedex.ui.theme.TypeDark
-import com.base.pokedex.ui.theme.TypeDragon
-import com.base.pokedex.ui.theme.TypeElectric
-import com.base.pokedex.ui.theme.TypeFairy
-import com.base.pokedex.ui.theme.TypeFighting
-import com.base.pokedex.ui.theme.TypeFire
-import com.base.pokedex.ui.theme.TypeFlying
-import com.base.pokedex.ui.theme.TypeGhost
-import com.base.pokedex.ui.theme.TypeGrass
-import com.base.pokedex.ui.theme.TypeGround
-import com.base.pokedex.ui.theme.TypeIce
-import com.base.pokedex.ui.theme.TypeNormal
-import com.base.pokedex.ui.theme.TypePoison
-import com.base.pokedex.ui.theme.TypePsychic
-import com.base.pokedex.ui.theme.TypeRock
-import com.base.pokedex.ui.theme.TypeSteel
-import com.base.pokedex.ui.theme.TypeWater
+import com.base.pokedex.presentation.theme.AtkColor
+import com.base.pokedex.presentation.theme.DefColor
+import com.base.pokedex.presentation.theme.HPColor
+import com.base.pokedex.presentation.theme.SpAtkColor
+import com.base.pokedex.presentation.theme.SpDefColor
+import com.base.pokedex.presentation.theme.SpdColor
+import com.base.pokedex.presentation.theme.TypeBug
+import com.base.pokedex.presentation.theme.TypeDark
+import com.base.pokedex.presentation.theme.TypeDragon
+import com.base.pokedex.presentation.theme.TypeElectric
+import com.base.pokedex.presentation.theme.TypeFairy
+import com.base.pokedex.presentation.theme.TypeFighting
+import com.base.pokedex.presentation.theme.TypeFire
+import com.base.pokedex.presentation.theme.TypeFlying
+import com.base.pokedex.presentation.theme.TypeGhost
+import com.base.pokedex.presentation.theme.TypeGrass
+import com.base.pokedex.presentation.theme.TypeGround
+import com.base.pokedex.presentation.theme.TypeIce
+import com.base.pokedex.presentation.theme.TypeNormal
+import com.base.pokedex.presentation.theme.TypePoison
+import com.base.pokedex.presentation.theme.TypePsychic
+import com.base.pokedex.presentation.theme.TypeRock
+import com.base.pokedex.presentation.theme.TypeSteel
+import com.base.pokedex.presentation.theme.TypeWater
 
 object PokedexParse {
 

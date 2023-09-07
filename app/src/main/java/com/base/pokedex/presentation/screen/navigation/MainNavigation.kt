@@ -1,9 +1,8 @@
-package com.base.pokedex.ui.screen.navigation
+package com.base.pokedex.presentation.screen.navigation
 
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import com.base.pokedex.domain.entity.PokemonEntity
 
 sealed class MainNavigation(
     val route: String
